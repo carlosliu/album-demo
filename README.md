@@ -1,6 +1,6 @@
 # album-demo — a AngularJS demo app
 
-This project is an application skeleton for a typical [AngularJS](http://angularjs.org/) web app.
+This project is an [AngularJS](http://angularjs.org/) demo web app.
 
 ### Install Dependencies
 
