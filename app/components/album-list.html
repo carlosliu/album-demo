@@ -1,0 +1,11 @@
+
+<table class="table table-striped">
+  <thead><tr>
+    <th>Album Title</th>
+    <th>User Name</th>
+  </tr></thead>
+  <tbody><tr ng-repeat="album in albums">
+    <td><a href="#/album/{{album.id}}">{{album.title}}</a></td>
+    <td><user-name id="album.userId"></user-name></td>
+  </tr></tbody>
+</table>

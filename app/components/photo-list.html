@@ -1,0 +1,23 @@
+
+<div ng-show="showImage">
+  <div class="overlay" ng-click="closeImage()">
+    <div class="note">Click/Touch screen to close image.</div>
+    <div id="ctn_container">
+    <img class="ctn"
+         ng-src="{{image}}"
+         ng-repeat="image in mainImageUrl"
+         width="600" height="600" />
+    </div>
+  </div>
+</div>
+
+<div class="col-xs-6 col-sm-3" ng-repeat="photo in photos">
+  <div class="img-entry">
+    <img class="img-thumbnail"
+         alt="{{photo.id}}"
+         ng-click="setImage(photo.url)"
+         ng-src="{{photo.thumbnailUrl}}"
+         width="150" height="150" />
+    <div class="img-title">{{photo.title}}</div>
+  </div>
+</div>
