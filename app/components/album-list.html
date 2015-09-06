@@ -1,9 +1,11 @@
-
+<!-- album table template -->
 <table class="table table-striped">
+  <!-- table head -->
   <thead><tr>
     <th>Album Title</th>
     <th>User Name</th>
   </tr></thead>
+  <!-- table content -->
   <tbody><tr ng-repeat="album in albums">
     <td><a href="#/album/{{album.id}}">{{album.title}}</a></td>
     <td><user-name id="album.userId"></user-name></td>

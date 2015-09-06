@@ -12,6 +12,7 @@ angular.module('albumListDirective', [])
   .controller('albumListCtrl', ['$scope', 'albumService', 'userService',
     function($scope, albumService, userService) {
       $scope.albums = albumService.query();
+      // Following call will preload users json data from server
       // $scope.users = userService.query();
     }
   ]);

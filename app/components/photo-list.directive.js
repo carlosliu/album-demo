@@ -14,11 +14,13 @@ angular.module('photoListDirective', [])
 
       $scope.photos = photoService.query({ albumId: $routeParams.albumId });
 
+      // load and show fullsize image
       $scope.setImage = function(imageUrl) {
         $scope.mainImageUrl = [imageUrl];
         $scope.showImage = true;
       };
 
+      // close/hide fullsize image
       $scope.closeImage = function() {
         $scope.showImage = false;
       };
