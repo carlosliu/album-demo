@@ -30,6 +30,8 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
 
 ## Directory Layout
 
+Adopt a flat directory structure because the simplicity of the demo.
+
 ```
 app/                    --> all of the source files for the application
   app.css               --> default stylesheet
