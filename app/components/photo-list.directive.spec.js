@@ -89,6 +89,7 @@ describe('photoList directive', function() {
   describe('photoListDirective', function () {
     var element, scope, $httpBackend;
 
+    // karma-ng-html2js-preprocessor make templateUrl in directive test possible
     beforeEach(module('components/photo-list.html'));
     beforeEach(inject(function (_$httpBackend_, $compile, $rootScope) {
       $httpBackend = _$httpBackend_;
@@ -120,5 +121,7 @@ describe('photoList directive', function() {
     });
 
   });
+
+  // TODO: add test for mouse click events on thumbnails
 
 });

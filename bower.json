@@ -1,8 +1,8 @@
 {
-  "name": "angular-seed",
-  "description": "A starter project for AngularJS",
+  "name": "album-demo",
+  "description": "A demo project for AngularJS",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-seed",
+  "homepage": "https://github.com/carlosliu/album-demo",
   "license": "MIT",
   "private": true,
   "dependencies": {

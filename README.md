@@ -4,14 +4,6 @@ This project is an [AngularJS](http://angularjs.org/) demo web app.
 
 ### Install Dependencies
 
-We have two kinds of dependencies in this project: tools and angular framework code.  The tools help
-us manage and test the application.
-
-* We get the tools we depend upon via `npm`, the [node package manager][npm].
-* We get the angular code via `bower`, a [client-side code package manager][bower].
-
-We have preconfigured `npm` to automatically run `bower` so we can simply do:
-
 ```
 npm install
 ```
@@ -28,9 +20,6 @@ it easier to serve the files by a webserver.*
 
 ### Run the Application
 
-We have preconfigured the project with a simple development web server.  The simplest way to start
-this server is:
-
 ```
 npm start
 ```
@@ -45,14 +34,18 @@ Now browse to the app at `http://localhost:8000/app/index.html`.
 app/                    --> all of the source files for the application
   app.css               --> default stylesheet
   components/           --> all app specific modules
-    album-list.directive.js     -->
-    album-list.html
-    photo-list.directive.js
-    photo-list.html
-    username.directive.js
-    services.js
-    albumsTable.html
-    albumDetail.html
+    album-list.directive.js         --> album list directive
+    album-list.directive.spec.js    --> album list directive test
+    album-list.html                 --> album list template
+    photo-list.directive.js         --> photo list directive
+    photo-list.directive.spec.js    --> photo list directive test
+    photo-list.html                 --> photo list template
+    username.directive.js           --> username directive
+    username.directive.spec.js      --> username test
+    services.js                     --> service resources
+    services.spec.js                --> service test (check existance)
+    albumsTable.html                --> album list/table view
+    albumDetail.html                --> album detail/content photo view
   app.js                --> main application module
   index.html            --> app layout file (the main html template file of the app)
 karma.conf.js         --> config file for running unit tests with Karma
@@ -72,7 +65,7 @@ The album-demo app comes preconfigured with unit tests. These are written in
 configuration file to run them.
 
 * the configuration is found at `karma.conf.js`
-* the unit tests are found next to the code they are testing and are named as `..._test.js`.
+* the unit tests are found next to the code they are testing and are named as `...spec.js`.
 
 The easiest way to run the unit tests is to use the supplied npm script:
 
@@ -154,15 +147,6 @@ bower update
 This will find the latest versions that match the version ranges specified in the `bower.json` file.
 
 
-## Serving the Application Files
-
-While angular is client-side-only technology and it's possible to create angular webapps that
-don't require a backend server at all, we recommend serving the project files using a local
-webserver during development to avoid issues with security restrictions (sandbox) in browsers. The
-sandbox implementation varies between browsers, but quite often prevents things like cookies, xhr,
-etc to function properly when an html page is opened via `file://` scheme instead of `http://`.
-
-
 ### Running the App during Development
 
 The album-demo project comes preconfigured with a local development webserver.  It is a node.js
@@ -184,37 +168,10 @@ Alternatively, you can choose to configure your own webserver, such as apache or
 configure your server to serve the files under the `app/` directory.
 
 
-### Running the App in Production
-
-This really depends on how complex your app is and the overall infrastructure of your system, but
-the general rule is that all you need in production are all the files under the `app/` directory.
-Everything else should be omitted.
-
-Angular apps are really just a bunch of static html, css and js files that just need to be hosted
-somewhere they can be accessed by browsers.
-
-If your Angular app is talking to the backend server via xhr or other means, you need to figure
-out what is the best way to host the static files to comply with the same origin policy if
-applicable. Usually this is done by hosting the files by the backend server or through
-reverse-proxying the backend server(s) and webserver(s).
-
-
-## Continuous Integration
-
-### Travis CI
-
-[Travis CI][travis] is a continuous integration service, which can monitor GitHub for new commits
-to your repository and execute scripts such as building the app or running tests. The album-demo
-project contains a Travis configuration file, `.travis.yml`, which will cause Travis to run your
-tests when you push to GitHub.
-
-You will need to enable the integration between Travis and GitHub. See the Travis website for more
-instruction on how to do this.
-
-
 ## Contact
 
-For more information on AngularJS please check out http://angularjs.org/
+For more information of me please contact on Twitter [@carlosliu](http://twitter.com/carlosliu)
+
 
 [git]: http://git-scm.com/
 [bower]: http://bower.io
@@ -223,5 +180,4 @@ For more information on AngularJS please check out http://angularjs.org/
 [protractor]: https://github.com/angular/protractor
 [jasmine]: http://jasmine.github.io
 [karma]: http://karma-runner.github.io
-[travis]: https://travis-ci.org/
 [http-server]: https://github.com/nodeapps/http-server

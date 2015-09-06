@@ -69,8 +69,9 @@ describe('albumList directive', function() {
       scope.$digest();
 
       var list = element.find('a');
+      // check data length
       expect(list.length).toBe(mockAlbumsJsonData.length);
-
+      // check data content
       expect(list[0].text).toEqual(mockAlbumsJsonData[0].title);
       expect(list[1].text).toEqual(mockAlbumsJsonData[1].title);
     });
