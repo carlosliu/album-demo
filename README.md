@@ -1,6 +1,6 @@
 # album-demo — a AngularJS demo app
 
-This project is an [AngularJS](http://angularjs.org/) demo web app.
+This project is an mobile friendly [AngularJS](http://angularjs.org/) demo web app.
 
 ### Install Dependencies
 
