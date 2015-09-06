@@ -69,7 +69,7 @@ describe('albumList directive', function() {
       scope.$digest();
 
       var list = element.find('a');
-	    expect(list.length).toBe(mockAlbumsJsonData.length);
+      expect(list.length).toBe(mockAlbumsJsonData.length);
 
       expect(list[0].text).toEqual(mockAlbumsJsonData[0].title);
       expect(list[1].text).toEqual(mockAlbumsJsonData[1].title);

@@ -86,31 +86,39 @@ describe('photoList directive', function() {
   });
 
   // directive test
-  // describe('photoListDirective', function () {
-  //   var element, scope, $httpBackend;
-  //
-  //   beforeEach(inject(function (_$httpBackend_, $compile, $rootScope) {
-  //     // photo-list directive test donot need mockup httpBackend at the moment
-  //     // leave it in here for future improvement
-  //     // $httpBackend = _$httpBackend_;
-  //     // $httpBackend.expectGET('http://jsonplaceholder.typicode.com/photos').
-  //     //     respond(mockPhotosJsonData);
-  //
-  //     scope = $rootScope.$new();
-  //     scope.photos = mockPhotosJsonData;
-  //     element = $compile('<tbody><tr ng-repeat="album in albums"><td><a href="#/album/{{album.id}}">{{album.title}}</a></td><td></td></tr></tbody>')(scope);
-  //   }));
-  //
-  //   it('Should have the correct albums titles in the list', function () {
-  //     scope.$digest();
-  //
-  //     var list = element.find('a');
-	//     expect(list.length).toBe(mockPhotosJsonData.length);
-  //
-  //     expect(list[0].text).toEqual(mockPhotosJsonData[0].title);
-  //     expect(list[1].text).toEqual(mockPhotosJsonData[1].title);
-  //   });
-  //
-  // });
+  describe('photoListDirective', function () {
+    var element, scope, $httpBackend;
+
+    beforeEach(module('components/photo-list.html'));
+    beforeEach(inject(function (_$httpBackend_, $compile, $rootScope) {
+      $httpBackend = _$httpBackend_;
+      $httpBackend.expectGET('http://jsonplaceholder.typicode.com/photos').
+          respond(mockPhotosJsonData);
+
+      scope = $rootScope.$new();
+      scope.photos = mockPhotosJsonData;
+      element = $compile('<div><photo-list></photo-list></div>')(scope);
+    }));
+
+    it('Should have the 6 thumbnails in the list', function () {
+      $httpBackend.flush();
+      scope.$digest();
+
+      var list = element.find('img');
+      // check data length
+      expect(list.length).toBe(mockPhotosJsonData.length);
+      // check matching thumbnail url
+      expect(list[0].src).toEqual(mockPhotosJsonData[0].thumbnailUrl);
+      expect(list[1].src).toEqual(mockPhotosJsonData[1].thumbnailUrl);
+      expect(list[2].src).toEqual(mockPhotosJsonData[2].thumbnailUrl);
+      // check matching title
+      list = element[0].getElementsByClassName('img-title');
+      expect(list[3].innerText).toEqual(mockPhotosJsonData[3].title);
+      expect(list[4].innerText).toEqual(mockPhotosJsonData[4].title);
+      expect(list[5].innerText).toEqual(mockPhotosJsonData[5].title);
+
+    });
+
+  });
 
 });

@@ -9,7 +9,8 @@ module.exports = function(config){
       'app/bower_components/angular-resource/angular-resource.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/components/**/*.js',
-      'app/app.js'
+      'app/app.js',
+      'app/components/**/*.html'
     ],
 
     autoWatch : true,
@@ -19,6 +20,7 @@ module.exports = function(config){
     browsers : ['Chrome'],
 
     plugins : [
+            'karma-ng-html2js-preprocessor',
             'karma-chrome-launcher',
             'karma-firefox-launcher',
             'karma-jasmine',
@@ -28,6 +30,14 @@ module.exports = function(config){
     junitReporter : {
       outputFile: 'test_out/unit.xml',
       suite: 'unit'
+    },
+
+    preprocessors: {
+      'app/components/**/*.html': ['ng-html2js']
+    },
+
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'app/'
     }
 
   });
