@@ -12,6 +12,6 @@ angular.module('albumListDirective', [])
   .controller('albumListCtrl', ['$scope', 'albumService', 'userService',
     function($scope, albumService, userService) {
       $scope.albums = albumService.query();
-      $scope.users = userService.query();
+      // $scope.users = userService.query();
     }
   ]);
