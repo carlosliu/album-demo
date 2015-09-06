@@ -16,25 +16,31 @@ describe('album demo app', function() {
     });
 
 
-    it('should render view1 when user navigates to /view1', function() {
+    it('should render albumsTable when user navigates to /', function() {
       expect(element.all(by.css('h3')).first().getText()).
         toMatch(/Albums/);
     });
 
+    it('should render 100 albums in the list when user navigates to /', function() {
+      expect(element.all(by.repeater('album in albums')).count()).toEqual(100);
+    });
+
   });
 
 
-  describe('album detail page(5)', function() {
+  describe('albums table page mouse click', function() {
 
     beforeEach(function() {
-      browser.get('#/albums/5');
+      browser.get('#/');
+      element.all(by.css('[class="ng-binding"]') ).get(4).click();
     });
 
 
-    it('should render album content (albumId=5) when user navigates to /album/5', function() {
-      expect(element.all(by.css('h3')).first().getText()).
-        toMatch(/Photos/);
+    it('should render album/3 when user click 3rd link', function() {
+      expect(browser.getLocationAbsUrl()).toMatch("/album/3");
     });
 
   });
+
+
 });
